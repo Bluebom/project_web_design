@@ -13,11 +13,11 @@ html, body{
 }
 
 :root{
---font1: 'Lora', serif;
---font2: 'Open Sans', sans-serif;
---mcolor:#0ABDE3;
---scolor:#338FA3;
---mbecolor:#3F3F3F;
+    --font1: 'Lora', serif;
+    --font2: 'Open Sans', sans-serif;
+    --mcolor:#0ABDE3;
+    --scolor:#338FA3;
+    --mbecolor:#3F3F3F;
 }
 
 div.page{
@@ -26,6 +26,88 @@ div.page{
     background-color: #e5e5e521;
     box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
 }
+
+header .hamburguer{
+    /*background-color: tomato;*/
+    
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 9999;
+    right: 2rem;
+    top: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    
+}
+
+.show-menu .hamburguer{
+    left: 3rem;
+    animation: surge 4s;
+}
+
+@keyframes surge{
+    0%{
+        opacity: 0;
+    }
+    
+    100%{
+        opacity: 1;
+    }
+}
+
+header .hamburguer .line{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: .1rem .1rem 1px #000;
+    height: .1rem;
+    transition: .7s ease-in-out;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.2rem, 0.06rem);
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.56rem, -0.56rem);
+}
+
+header .hamburguer span{
+    font-family: var(--font-action);
+    color: #fff;
+    position: absolute;
+    left: 3rem;
+    top: -.2rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mcolor);
+    opacity: 0;
+}
+
+header .hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid var(--mcolor);
+    border-left: .5rem solid transparent;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
+
 
 header{
     display: flex;
@@ -40,9 +122,33 @@ header a.logo > h3{
     font-size: 1.87rem;
 }
 
+header.show-menu nav.mobile{
+    display: block;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: .1rem .2rem .2rem var(--mbecolor);
+    background: linear-gradient(to top, rgba(32, 32, 32, 0.9), rgba(39, 39, 39, 0.9));
+    position: fixed;
+    top: 0rem;
+    right: 0rem;
+    width: 92vw;
+    height: 20vh;
+    animation: surge 2s;
+    z-index: 999;
+}
+
 header nav ul{
     display: flex;
     align-items: center;
+}
+
+header nav.mobile ul{
+    margin-top: 0rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5rem;
 }
 
 header nav li{
@@ -54,6 +160,11 @@ header nav li a{
     font-size: 1.3rem;
     font-weight: lighter;
     padding: 1rem;
+}
+
+header nav.mobile li a{
+    font-size: 1.6rem;
+    color: var(--mcolor);
 }
 
 header nav li a:hover{
@@ -162,7 +273,7 @@ section.ux .cards p{
 }
 
 section.about{
-    width: 72rem;
+    width: 100%;
     height: 20rem;
     background-color: #E1E6EF;
 }
@@ -221,4 +332,86 @@ section.about .history p{
     font-weight: lighter;
     font-size: 1.08rem;
     padding-bottom: 1rem;
+}
+
+section.about div.mini_form{
+    width: 100%;
+}
+
+
+@media (max-width: 1024px){
+    section.bg p{
+        font-size: 1rem;
+        padding: 0 8%;
+    }
+
+    section.ux div.wrapper{
+        flex-wrap: wrap;
+        padding: 0 20%;
+    }
+}
+
+@media (max-width: 800px){
+    section.bg{
+        padding: 0;
+    }
+
+    section.bg h1{
+        font-size: 2.8rem;
+    }
+
+    section.bg p{
+        font-size: 1rem;
+        padding: 0;
+        min-width: 25rem;
+
+    }
+    
+    section.bg .btn{
+        transform: scale(.9);
+    }
+
+    section.ux h2{
+        font-size: 2.2rem;
+    }
+
+
+    .cards{
+        margin: 2rem auto;
+    }
+
+    section.about .history{
+        display: none;
+    }
+}
+
+@media (max-width: 550px){
+    header .hamburguer{
+        display: flex;
+    }
+
+    nav.desktop{
+        display: none;
+    }
+
+    section.bg{
+
+    }
+
+    section.bg h1{
+        font-size: 2.2rem;
+    }
+
+    section.bg p{
+        font-size: .9rem;
+        padding: 0;
+    }
+    
+    section.bg .btn{
+        transform: scale(.9);
+    }
+
+    section.ux h2{
+        font-size: 1.8rem;
+    }
 }
