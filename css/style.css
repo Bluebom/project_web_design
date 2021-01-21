@@ -274,7 +274,7 @@ section.ux .cards p{
 
 section.about{
     width: 100%;
-    height: 20rem;
+    max-height: 20rem;
     background-color: #E1E6EF;
 }
 
@@ -338,8 +338,122 @@ section.about div.mini_form{
     width: 100%;
 }
 
+.mini_form{
+    position: relative;
+    bottom: -1rem;
+    width: 100%;
+    padding: 1.5%;
+    background-color: var(--mcolor);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
 
-@media (max-width: 1024px){
+.mini_form span{
+    color: #fff;
+    font-style: italic;
+    font-family: var(--font2);
+    font-size: 1.4rem;
+}
+
+.mini_form span i{
+    transform: rotateZ(45deg);
+    font-size: 1.8rem;
+    padding: .3rem;
+}
+
+.mini_form .inputs{
+    display: flex;
+}
+
+.mini_form span input[type=email]{
+    width: 17rem;
+    border: none;
+    padding: .25rem;
+}
+
+.mini_form span input[type=submit]{
+    border: none;
+    font-family: var(--font2);
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #37648D;
+    width: 8rem;
+    cursor: pointer;
+    transition: all .5s ;
+}
+
+.mini_form span input[type=submit]:hover{
+    background-color: #37648D;
+    opacity: .9;
+}
+
+.mini_form span input[type=submit]:focus{
+    background-color: var(--mbecolor);
+}
+
+section.cards .wrapper{
+    align-items: center;
+}
+
+section .cards{
+    margin-top: 5rem;
+}
+
+section.cards img{
+    max-width: 14rem;
+}
+
+section.cards .text_card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+footer{
+    color: #fff;
+}
+
+footer .wrapper{
+    background-color: var(--mcolor);
+    padding: 0 2rem;
+    align-items: center;
+}
+
+footer .wrapper div{
+    padding: .5rem;
+}
+
+footer .wrapper div h4{
+    padding-bottom: .25rem;
+}
+
+footer .wrapper a{
+    font-size: .8rem;
+    color: #eee;
+}
+
+footer .footer_end{
+    padding: .5rem;
+    background-color: var(--scolor);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+footer .links p{
+    line-height: .8rem;
+}
+
+footer .contact i{
+    font-size: 2.5rem;
+    margin-left: .5rem;
+}
+
+@media (max-width: 1200px){
     section.bg p{
         font-size: 1rem;
         padding: 0 8%;
@@ -348,6 +462,11 @@ section.about div.mini_form{
     section.ux div.wrapper{
         flex-wrap: wrap;
         padding: 0 20%;
+    }
+
+    section.cards .wrapper{
+        flex-direction: column;
+        padding: 0 10%;
     }
 }
 
@@ -383,9 +502,18 @@ section.about div.mini_form{
     section.about .history{
         display: none;
     }
+
+
+
+    footer .wrapper{
+        padding: 0;
+    }
 }
 
 @media (max-width: 550px){
+    html,body{
+        overflow-x: hidden;
+    }
     header .hamburguer{
         display: flex;
     }
@@ -403,6 +531,7 @@ section.about div.mini_form{
     }
 
     section.bg p{
+        min-width: 20rem;
         font-size: .9rem;
         padding: 0;
     }
@@ -413,5 +542,29 @@ section.about div.mini_form{
 
     section.ux h2{
         font-size: 1.8rem;
+    }
+
+    section.ux .wrapper{
+        align-items: center;
+        justify-content: center;
+    }
+
+    section.ux .cards p{
+        max-width: 18rem;
+        font-size: 1.1rem;
+    }
+
+    section.about .mini_form input[type=email]{
+        width: 12rem;
+        padding: .2rem;
+    }
+
+    section.about .mini_form input[type=submit]{
+        width: 7rem;
+    }
+    footer .wrapper{
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        justify-content: center;
     }
 }
